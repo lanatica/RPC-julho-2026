@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>China 2026 — Guia de Viagem</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700&family=Inter:wght@300;400;500;600&family=Noto+Sans+SC&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red: #C0392B; --red-light: #FAE9E8;
+    --gold: #C9941A; --gold-light: #FBF3E0;
+    --ink: #1A1A1A; --ink-mid: #444; --ink-soft: #777;
+    --paper: #FDFAF6; --paper-warm: #F5EFE6; --border: #E8DDD0;
+    --green: #1A6B4A; --green-light: #E6F3EC;
+    --blue: #1A4A7A; --blue-light: #E6EEF8;
+    --purple: #4A3A8A; --purple-light: #EEEAF8;
+    --amber: #7A4A0A; --amber-light: #FBF0DC;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+  html { font-size: 15px; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--paper); color: var(--ink); line-height: 1.6; -webkit-text-size-adjust: 100%; }
+
+  /* HERO */
+  .hero { background: var(--red); color: white; padding: 2rem 1.25rem; text-align: center; position: relative; overflow: hidden; }
+  .hero::before { content: '中国'; position: absolute; font-family: 'Noto Serif SC', serif; font-size: 9rem; opacity: 0.06; top: 50%; left: 50%; transform: translate(-50%,-50%); pointer-events: none; white-space: nowrap; }
+  .hero-eyebrow { font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; opacity: 0.7; margin-bottom: 8px; }
+  .hero-title { font-family: 'Noto Serif SC', serif; font-size: 2.2rem; font-weight: 700; margin-bottom: 6px; line-height: 1.1; }
+  .hero-sub { font-size: 13px; opacity: 0.8; margin-bottom: 1.2rem; }
+  .hero-pills { display: flex; justify-content: center; flex-wrap: wrap; gap: 6px; }
+  .hero-pill { background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3); border-radius: 20px; padding: 3px 11px; font-size: 11px; }
+
+  /* NAV */
+  .nav { background: white; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 100; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+  .nav::-webkit-scrollbar { display: none; }
+  .nav-inner { display: flex; min-width: max-content; padding: 0 0.75rem; }
+  .nav-tab { padding: 12px 14px; font-size: 12px; font-weight: 500; color: var(--ink-soft); cursor: pointer; border-bottom: 2px solid transparent; white-space: nowrap; transition: all 0.15s; display: flex; align-items: center; gap: 5px; user-select: none; }
+  .nav-tab:active { opacity: 0.7; }
+  .nav-tab.active { color: var(--red); border-bottom-color: var(--red); }
+
+  /* CONTAINER */
+  .container { max-width: 860px; margin: 0 auto; padding: 1.25rem 1rem; }
+
+  /* SECTIONS */
+  .section { display: none; }
+  .section.active { display: block; }
+
+  /* SECTION HEADER */
+  .section-header { margin-bottom: 1.25rem; }
+  .sec-eye { font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--red); font-weight: 600; margin-bottom: 4px; }
+  .sec-title { font-family: 'Noto Serif SC', serif; font-size: 1.4rem; font-weight: 700; color: var(--ink); line-height: 1.2; }
+
+  /* CARDS */
+  .card { background: white; border: 1px solid var(--border); border-radius: 12px; padding: 0.9rem 1rem; margin-bottom: 10px; }
+  .card-red { border-left: 3px solid var(--red); }
+  .card-gold { border-left: 3px solid var(--gold); }
+  .card-green { border-left: 3px solid var(--green); }
+  .card-blue { border-left: 3px solid var(--blue); }
+
+  /* CHECKLIST */
+  .check-item { display: flex; align-items: flex-start; gap: 12px; padding: 11px 0; border-bottom: 1px solid var(--border); cursor: pointer; user-select: none; }
+  .check-item:last-child { border-bottom: none; }
+  .check-item:active { opacity: 0.7; }
+  .check-box { width: 22px; height: 22px; border-radius: 6px; border: 1.5px solid var(--border); flex-shrink: 0; margin-top: 1px; display: flex; align-items: center; justify-content: center; transition: all 0.15s; background: white; }
+  .check-box.checked { background: var(--green); border-color: var(--green); }
+  .check-box.checked::after { content: '✓'; color: white; font-size: 13px; font-weight: 700; }
+  .check-text { flex: 1; min-width: 0; }
+  .check-title { font-size: 14px; font-weight: 500; color: var(--ink); line-height: 1.4; }
+  .check-title.done { text-decoration: line-through; color: var(--ink-soft); }
+  .check-sub { font-size: 12px; color: var(--ink-soft); margin-top: 3px; line-height: 1.5; }
+
+  /* BADGES */
+  .badge { display: inline-block; font-size: 10px; font-weight: 600; padding: 2px 7px; border-radius: 8px; margin-left: 5px; vertical-align: middle; white-space: nowrap; }
+  .bvc { background: var(--blue-light); color: var(--blue); }
+  .bcomp { background: var(--purple-light); color: var(--purple); }
+  .bambos { background: var(--green-light); color: var(--green); }
+  .bok { background: var(--green-light); color: var(--green); }
+
+  /* PHASE */
+  .phase-lbl { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin: 1.3rem 0 0.6rem; display: flex; align-items: center; gap: 8px; }
+  .phase-lbl::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+  /* PROGRESS */
+  .prog-wrap { background: var(--paper-warm); border-radius: 12px; padding: 1rem; margin-bottom: 1.25rem; display: flex; align-items: center; gap: 1rem; }
+  .prog-info { flex: 1; min-width: 0; }
+  .prog-title { font-size: 13px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+  .prog-bg { height: 8px; background: var(--border); border-radius: 4px; }
+  .prog-fill { height: 8px; border-radius: 4px; background: linear-gradient(90deg, var(--red), var(--gold)); transition: width 0.3s; }
+  .prog-num { font-family: 'Noto Serif SC', serif; font-size: 1.8rem; font-weight: 700; color: var(--red); white-space: nowrap; }
+
+  /* GRID */
+  .grid2 { display: grid; grid-template-columns: 1fr; gap: 8px; margin-bottom: 8px; }
+
+  /* INFO BLOCK */
+  .info-block { background: var(--paper-warm); border-radius: 10px; padding: 0.8rem 0.9rem; }
+  .info-lbl { font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-soft); margin-bottom: 7px; }
+  .info-row { display: flex; align-items: flex-start; gap: 7px; font-size: 13px; color: var(--ink-mid); margin-bottom: 4px; line-height: 1.4; }
+  .info-row::before { content: '·'; color: var(--red); flex-shrink: 0; }
+
+  /* TAGS */
+  .tag-row { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; }
+  .tag { font-size: 11px; padding: 2px 8px; border-radius: 8px; font-weight: 500; }
+  .tg { background: var(--green-light); color: var(--green); }
+  .ta { background: var(--amber-light); color: var(--amber); }
+  .tr { background: var(--red-light); color: var(--red); }
+  .tb { background: var(--blue-light); color: var(--blue); }
+
+  /* HIGHLIGHT */
+  .hl { border-radius: 10px; padding: 10px 12px; font-size: 13px; margin-top: 10px; line-height: 1.5; }
+  .hl-purple { background: var(--purple-light); color: var(--purple); }
+  .hl-green { background: var(--green-light); color: var(--green); }
+  .hl-amber { background: var(--amber-light); color: var(--amber); }
+  .hl-red { background: var(--red-light); color: var(--red); }
+  .hl-gold { background: var(--gold-light); color: var(--amber); }
+
+  /* HOTEL CARD */
+  .hotel-card { background: white; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; margin-bottom: 12px; }
+  .hotel-top { background: var(--red); color: white; padding: 0.85rem 1rem; display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
+  .hotel-city { font-size: 10px; opacity: 0.8; text-transform: uppercase; letter-spacing: 0.1em; }
+  .hotel-name { font-family: 'Noto Serif SC', serif; font-size: 0.95rem; font-weight: 700; margin-top: 2px; }
+  .hotel-dates { font-size: 11px; opacity: 0.8; text-align: right; white-space: nowrap; flex-shrink: 0; }
+  .hotel-body { padding: 0.9rem 1rem; }
+  .hotel-rating { display: inline-flex; align-items: center; gap: 4px; font-size: 12px; font-weight: 600; color: var(--gold); margin-bottom: 10px; }
+
+  /* PHRASES */
+  .phrase-cat { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--red); margin: 1.2rem 0 0.6rem; display: flex; align-items: center; gap: 8px; }
+  .phrase-cat::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+  .phrase-card { background: white; border: 1px solid var(--border); border-radius: 10px; padding: 0.75rem 1rem; margin-bottom: 7px; display: grid; grid-template-columns: 1fr auto; gap: 10px; align-items: center; }
+  .phrase-pt { font-size: 12px; color: var(--ink-soft); margin-bottom: 3px; }
+  .phrase-zh { font-family: 'Noto Sans SC', sans-serif; font-size: 1.5rem; color: var(--ink); line-height: 1.2; margin-bottom: 2px; }
+  .phrase-py { font-size: 13px; color: var(--blue); font-style: italic; }
+  .phrase-pron { background: var(--paper-warm); border-radius: 8px; padding: 5px 8px; font-size: 11px; color: var(--ink-soft); text-align: center; max-width: 90px; line-height: 1.3; }
+
+  /* CITY HEADER */
+  .city-hdr { background: var(--red); color: white; border-radius: 10px; padding: 0.7rem 1rem; display: flex; align-items: center; gap: 10px; margin: 1.2rem 0 0.6rem; }
+  .city-emoji { font-size: 18px; flex-shrink: 0; }
+  .city-nm { font-size: 14px; font-weight: 600; }
+  .city-sub { font-size: 11px; opacity: 0.8; }
+
+  /* FOOD */
+  .food-card { background: white; border: 1px solid var(--border); border-radius: 10px; padding: 0.75rem 1rem; margin-bottom: 7px; }
+  .food-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; flex-wrap: wrap; }
+  .food-name { font-size: 14px; font-weight: 600; color: var(--ink); }
+  .food-desc { font-size: 13px; color: var(--ink-mid); line-height: 1.5; margin-top: 4px; }
+
+  /* ROTEIRO */
+  .rota-day { background: white; border: 1px solid var(--border); border-radius: 10px; padding: 0.8rem 1rem; margin-bottom: 7px; }
+  .rota-hdr { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; flex-wrap: wrap; }
+  .rota-date { font-size: 12px; font-weight: 600; color: var(--ink-soft); }
+  .rota-pill { font-size: 10px; padding: 2px 8px; border-radius: 8px; font-weight: 500; }
+  .rota-desc { font-size: 13px; color: var(--ink-mid); line-height: 1.5; }
+  .rota-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 6px; }
+  .rt { font-size: 10px; padding: 2px 7px; border-radius: 7px; }
+  .rt-inc { background: var(--green-light); color: var(--green); }
+  .rt-liv { background: var(--purple-light); color: var(--purple); }
+  .rt-rua { background: var(--red-light); color: var(--red); }
+  .rt-tur { background: var(--blue-light); color: var(--blue); }
+  .rt-amb { background: var(--amber-light); color: var(--amber); }
+
+  /* APPS */
+  .app-card { background: white; border: 1px solid var(--border); border-radius: 10px; padding: 0.8rem 1rem; margin-bottom: 7px; display: flex; align-items: flex-start; gap: 10px; }
+  .app-icon { width: 36px; height: 36px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+  .app-name { font-size: 14px; font-weight: 600; color: var(--ink); margin-bottom: 2px; }
+  .app-desc { font-size: 12px; color: var(--ink-soft); line-height: 1.45; }
+  .app-badge { font-size: 10px; padding: 1px 6px; border-radius: 6px; margin-left: 5px; vertical-align: middle; white-space: nowrap; }
+
+  /* VOOS */
+  .flight-card { background: white; border: 1px solid var(--border); border-radius: 12px; padding: 1rem; margin-bottom: 10px; }
+  .flight-legs { display: flex; flex-direction: column; gap: 1rem; }
+  .flight-route { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; flex-wrap: wrap; }
+  .flight-iata { font-family: 'Noto Serif SC', serif; font-size: 1.3rem; font-weight: 700; color: var(--ink); }
+  .flight-arrow { font-size: 16px; color: var(--red); }
+  .flight-info { font-size: 12px; color: var(--ink-soft); line-height: 1.6; }
+  .flight-time { font-size: 13px; font-weight: 600; color: var(--ink); }
+
+  /* LEMBRANÇAS */
+  .lemb-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 7px; }
+  .lemb-card { background: white; border: 1px solid var(--border); border-radius: 10px; padding: 0.75rem 0.9rem; display: flex; align-items: center; gap: 8px; cursor: pointer; transition: background 0.15s; user-select: none; }
+  .lemb-card:active { opacity: 0.8; }
+  .lemb-card.checked-card { background: var(--green-light); border-color: var(--green); }
+  .lemb-name { font-size: 14px; font-weight: 500; color: var(--ink); }
+  .lemb-status { font-size: 11px; color: var(--ink-soft); margin-top: 1px; }
+  .lemb-check { width: 20px; height: 20px; border-radius: 50%; border: 1.5px solid var(--border); flex-shrink: 0; display: flex; align-items: center; justify-content: center; margin-left: auto; }
+  .lemb-check.done { background: var(--green); border-color: var(--green); }
+  .lemb-check.done::after { content: '✓'; color: white; font-size: 11px; font-weight: 700; }
+  .lemb-counter { font-size: 13px; color: var(--ink-soft); margin-bottom: 1rem; }
+
+  /* SUB LABEL */
+  .sub-lbl { font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-soft); margin: 1rem 0 0.5rem; }
+
+  /* FOOTER */
+  .footer { background: var(--red); color: white; text-align: center; padding: 1.25rem 1rem; font-size: 13px; }
+
+  /* TABLET+ */
+  @media (min-width: 600px) {
+    .hero { padding: 3rem 2rem 2.5rem; }
+    .hero::before { font-size: 14rem; }
+    .hero-title { font-size: 2.8rem; }
+    .container { padding: 2rem 1.5rem; }
+    .grid2 { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .lemb-grid { grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); }
+    .flight-legs { flex-direction: row; }
+    .phrase-zh { font-size: 1.6rem; }
+    .nav-tab { padding: 14px 18px; font-size: 13px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-eyebrow">Guia de viagem — Julho 2026</div>
+  <div class="hero-title">China</div>
+  <div class="hero-sub">11 de julho → 26 de julho · 4 pessoas · 6 cidades</div>
+  <div class="hero-pills">
+    <span class="hero-pill">✈️ GRU → PEK</span>
+    <span class="hero-pill">🏙️ Pequim · Xi'an · Zhangjiajie</span>
+    <span class="hero-pill">🌆 Fenghuang · Chengdu · Shanghai</span>
+    <span class="hero-pill">📋 PNR: VZ2IMM</span>
+  </div>
+</div>
+
+<div class="nav">
+  <div class="nav-inner">
+    <div class="nav-tab active" onclick="showSection('checklist')">✅ Checklist</div>
+    <div class="nav-tab" onclick="showSection('roteiro')">📅 Roteiro</div>
+    <div class="nav-tab" onclick="showSection('livres')">🌅 Momentos livres</div>
+    <div class="nav-tab" onclick="showSection('voos')">✈️ Voos & Hotéis</div>
+    <div class="nav-tab" onclick="showSection('frases')">🗣️ Mandarim</div>
+    <div class="nav-tab" onclick="showSection('comidas')">🍜 Comidas</div>
+    <div class="nav-tab" onclick="showSection('apps')">📱 Apps</div>
+    <div class="nav-tab" onclick="showSection('lembrancas')">🎁 Lembranças</div>
+  </div>
+  <div style="padding:5px 1rem; border-top:1px solid var(--border);">
+    <span id="sync-status" style="font-size:11px;color:var(--ink-soft);">⟳ Carregando...</span>
+  </div>
+</div>
+
+<!-- ===== CHECKLIST ===== -->
+<div class="section active" id="checklist">
+<div class="container">
+  <div class="section-header">
+    <div class="sec-eye">Preparação</div>
+    <div class="sec-title">Checklist da viagem</div>
+  </div>
+
+  <div class="prog-wrap">
+    <div class="prog-info">
+      <div class="prog-title">Progresso geral</div>
+      <div class="prog-bg"><div class="prog-fill" id="prog-fill" style="width:52%"></div></div>
+      <div style="font-size:12px;color:var(--ink-soft);margin-top:5px" id="prog-label">11 de 23 itens concluídos</div>
+    </div>
+    <div class="prog-num" id="prog-pct">52%</div>
+  </div>
+
+  <div class="phase-lbl" style="color:var(--red)">🔴 Urgente — esta semana</div>
+  <div class="card card-red">
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"></div>
+      <div class="check-text">
+        <div class="check-title">Solicitar CIVP (Febre Amarela)<span class="badge bcomp">companheiro</span></div>
+        <div class="check-sub">Vacina já tomada — ir ao posto de saúde e emitir o certificado. Obrigatório para entrar na China.</div>
+      </div>
+    </div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"></div>
+      <div class="check-text">
+        <div class="check-title">Testar login do ExpressVPN<span class="badge bcomp">companheiro</span></div>
+        <div class="check-sub">Baixar e confirmar que o login funciona no Brasil. Na China não dá para baixar nem recuperar acesso.</div>
+      </div>
+    </div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"></div>
+      <div class="check-text">
+        <div class="check-title">Configurar Alipay internacional<span class="badge bambos">ambos</span></div>
+        <div class="check-sub">Baixar → criar conta → ativar Tour Pass → vincular Wise/cartão. Essencial para pagar em tudo na China.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="phase-lbl" style="color:var(--gold)">🟡 Início de julho (1–5/jul)</div>
+  <div class="card card-gold">
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"></div>
+      <div class="check-text">
+        <div class="check-title">Upgrade plano Claro para China<span class="badge bvc">você</span></div>
+        <div class="check-sub">Fazer em julho para não pagar junho. Confirmar que cobre dados na China.</div>
+      </div>
+    </div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"></div>
+      <div class="check-text">
+        <div class="check-title">Comprar powerbank<span class="badge bvc">você</span></div>
+        <div class="check-sub">Companheiro já tem. ⚠️ Vai obrigatoriamente na bagagem de mão — proibido despachar.</div>
+      </div>
+    </div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"></div>
+      <div class="check-text">
+        <div class="check-title">Comprar balança portátil de bagagem<span class="badge bambos">ambos</span></div>
+        <div class="check-sub">Evita surpresas no check-in de volta com as compras.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="phase-lbl" style="color:var(--gold)">🟡 Por volta de 27/jun — 2 semanas antes</div>
+  <div class="card card-gold">
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"></div>
+      <div class="check-text">
+        <div class="check-title">Comprar probiótico e começar a tomar<span class="badge bambos">ambos</span></div>
+        <div class="check-sub">Floratil, Enterogermina ou Simfort — tomar 5 dias antes e continuar na 1ª semana na China.</div>
+      </div>
+    </div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"></div>
+      <div class="check-text">
+        <div class="check-title">Montar farmácia de viagem<span class="badge bambos">ambos</span></div>
+        <div class="check-sub">Antialérgico, antidiarreico, antibiótico (pedir receita!), antiemético, protetor gástrico, analgésico, repelente, curativos, protetor solar.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="phase-lbl" style="color:var(--blue)">🔵 Antes de embarcar — até 10/jul</div>
+  <div class="card card-blue">
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"></div>
+      <div class="check-text">
+        <div class="check-title">Baixar MetroMan + mapas offline<span class="badge bambos">ambos</span></div>
+        <div class="check-sub">Offline em inglês. Cobre Pequim, Shanghai, Chengdu e Xi'an.</div>
+      </div>
+    </div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"></div>
+      <div class="check-text">
+        <div class="check-title">Baixar Maps.me + mapa offline da China<span class="badge bambos">ambos</span></div>
+        <div class="check-sub">GPS offline, funciona sem VPN e sem internet.</div>
+      </div>
+    </div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"></div>
+      <div class="check-text">
+        <div class="check-title">Baixar Baidu Translate<span class="badge bambos">ambos</span></div>
+        <div class="check-sub">Melhor tradutor sem VPN. Câmera para cardápios e placas.</div>
+      </div>
+    </div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"></div>
+      <div class="check-text">
+        <div class="check-title">Criar conta WeChat e avisar família/amigos<span class="badge bambos">ambos</span></div>
+        <div class="check-sub">Não bloqueado na China. Canal de segurança se a VPN falhar.</div>
+      </div>
+    </div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"></div>
+      <div class="check-text">
+        <div class="check-title">Baixar DiDi e cadastrar cartão<span class="badge bambos">ambos</span></div>
+        <div class="check-sub">Uber chinês. Essencial para Zhangjiajie, Fenghuang e deslocamentos noturnos.</div>
+      </div>
+    </div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"></div>
+      <div class="check-text">
+        <div class="check-title">Baixar Google Tradutor + mandarim offline<span class="badge bambos">ambos</span></div>
+        <div class="check-sub">Backup com VPN ativa.</div>
+      </div>
+    </div>
+    <div class="check-item" onclick="toggleCheck(this)">
+      <div class="check-box"></div>
+      <div class="check-text">
+        <div class="check-title">Ativar mini programa de transporte no Alipay<span class="badge bambos">ambos</span></div>
+        <div class="check-sub">Sem isso o QR code do metrô não aparece. ⚠️ Desligar VPN quando usar o Alipay.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="phase-lbl" style="color:var(--green)">✅ Já resolvido</div>
+  <div class="card card-green">
+    <div class="check-item" onclick="toggleCheck(this)"><div class="check-box checked"></div><div class="check-text"><div class="check-title done">Passaportes válidos<span class="badge bambos">ambos</span></div></div></div>
+    <div class="check-item" onclick="toggleCheck(this)"><div class="check-box checked"></div><div class="check-text"><div class="check-title done">CIVP Febre Amarela<span class="badge bvc">você</span></div></div></div>
+    <div class="check-item" onclick="toggleCheck(this)"><div class="check-box checked"></div><div class="check-text"><div class="check-title done">Voos internacionais — PNR VZ2IMM<span class="badge bambos">ambos</span></div></div></div>
+    <div class="check-item" onclick="toggleCheck(this)"><div class="check-box checked"></div><div class="check-text"><div class="check-title done">Pacote terrestre + hotéis confirmados<span class="badge bambos">ambos</span></div></div></div>
+    <div class="check-item" onclick="toggleCheck(this)"><div class="check-box checked"></div><div class="check-text"><div class="check-title done">Seguro viagem INTERMAC IS60<span class="badge bambos">ambos</span></div></div></div>
+    <div class="check-item" onclick="toggleCheck(this)"><div class="check-box checked"></div><div class="check-text"><div class="check-title done">ExpressVPN instalada e funcionando<span class="badge bvc">você</span></div></div></div>
+    <div class="check-item" onclick="toggleCheck(this)"><div class="check-box checked"></div><div class="check-text"><div class="check-title done">Vivo Mundo — dados na China<span class="badge bcomp">companheiro</span></div></div></div>
+    <div class="check-item" onclick="toggleCheck(this)"><div class="check-box checked"></div><div class="check-text"><div class="check-title done">Wise com dólares para gastos<span class="badge bambos">ambos</span></div></div></div>
+    <div class="check-item" onclick="toggleCheck(this)"><div class="check-box checked"></div><div class="check-text"><div class="check-title done">Powerbank<span class="badge bcomp">companheiro</span></div></div></div>
+    <div class="check-item" onclick="toggleCheck(this)"><div class="check-box checked"></div><div class="check-text"><div class="check-title done">Câmera fotográfica<span class="badge bambos">ambos</span></div></div></div>
+    <div class="check-item" onclick="toggleCheck(this)"><div class="check-box checked"></div><div class="check-text"><div class="check-title done">Adaptadores de tomada universais<span class="badge bambos">ambos</span></div></div></div>
+  </div>
+
+  <div class="hl hl-gold">💡 <strong>Regra de ouro China:</strong> VPN <strong>desligada</strong> para Alipay, DiDi e Baidu Translate. VPN <strong>ligada</strong> para Google, WhatsApp, Instagram e Gmail.</div>
+</div>
+</div>
+
+<!-- ===== ROTEIRO ===== -->
+<div class="section" id="roteiro">
+<div class="container">
+  <div class="section-header">
+    <div class="sec-eye">Dia a dia</div>
+    <div class="sec-title">Roteiro completo</div>
+  </div>
+  <div class="hl hl-purple" style="margin-bottom:1rem">🟣 Momentos livres e comida de rua destacados em cada dia</div>
+
+  <div class="city-hdr"><div class="city-emoji">🏛️</div><div><div class="city-nm">Pequim — 11 a 14/jul</div><div class="city-sub">Novotel Peace Hotel · 3 noites</div></div></div>
+  <div class="rota-day"><div class="rota-hdr"><span class="rota-date">11/jul (sáb)</span><span class="rota-pill tg">chegada</span></div><div class="rota-desc">Chegada ~15h45. Transfer in. Tarde e noite livres.</div><div class="rota-tags"><span class="rt rt-liv">tarde livre</span><span class="rt rt-rua">Wangfujing — comida de rua</span></div></div>
+  <div class="rota-day"><div class="rota-hdr"><span class="rota-date">12/jul (dom)</span><span class="rota-pill tb">dia cheio</span></div><div class="rota-desc">Visita Palácio Imperial, Praça Tiananmen, Templo do Céu. Ver acrobacia no Teatro Vermelho. Experiência Hanfu opcional (custo adicional).</div><div class="rota-tags"><span class="rt rt-inc">almoço incluso</span><span class="rt rt-tur">tour guiado</span></div></div>
+  <div class="rota-day"><div class="rota-hdr"><span class="rota-date">13/jul (seg)</span><span class="rota-pill tb">dia cheio</span></div><div class="rota-desc">Grande Muralha Mutianyu com teleférico, Mercado de Pérolas Hongqiao. Ver Ópera Beijing no Teatro Liyuan.</div><div class="rota-tags"><span class="rt rt-inc">almoço incluso</span><span class="rt rt-tur">tour guiado</span><span class="rt rt-rua">Mercado Pérolas</span></div></div>
+  <div class="rota-day"><div class="rota-hdr"><span class="rota-date">14/jul (ter)</span><span class="rota-pill rt-amb">transfer Xi'an</span></div><div class="rota-desc">Visita Hutong. Transfer out. Beijing → Xi'an de trem. Transfer in. Muralha Antiga de Xi'an. Show Grande Dinastia Tang.</div><div class="rota-tags"><span class="rt rt-inc">almoço incluso ✨</span><span class="rt rt-inc">jantar dumplings incluso</span><span class="rt rt-rua">Rua Muçulmana à noite</span></div></div>
+
+  <div class="city-hdr"><div class="city-emoji">🏯</div><div><div class="city-nm">Xi'an — 14 a 15/jul</div><div class="city-sub">Tiantan Times Hotel · 1 noite</div></div></div>
+  <div class="rota-day"><div class="rota-hdr"><span class="rota-date">15/jul (qua)</span><span class="rota-pill rt-amb">transfer Zhangjiajie</span></div><div class="rota-desc">Museu dos Guerreiros de Terracota. Transfer out. Xi'an → Zhangjiajie por voo. Transfer in.</div><div class="rota-tags"><span class="rt rt-inc">almoço incluso</span></div></div>
+
+  <div class="city-hdr"><div class="city-emoji">⛰️</div><div><div class="city-nm">Zhangjiajie — 15 a 18/jul</div><div class="city-sub">Qinghe Jinjiang Intl Hotel ⭐9.1 · 3 noites</div></div></div>
+  <div class="rota-day"><div class="rota-hdr"><span class="rota-date">16/jul (qui)</span><span class="rota-pill tg">parque nacional</span></div><div class="rota-desc">Parque Nacional Floresta Zhangjiajie — Elevador Bailong, Montanha Tianzi (inspiração do Avatar).</div><div class="rota-tags"><span class="rt rt-inc">almoço incluso</span><span class="rt rt-tur">tour guiado</span></div></div>
+  <div class="rota-day"><div class="rota-hdr"><span class="rota-date">17/jul (sex)</span><span class="rota-pill tg">Tianmen</span></div><div class="rota-desc">Visita Montanha Tianmen — teleférico + caminho de vidro sobre o abismo.</div><div class="rota-tags"><span class="rt rt-inc">almoço incluso</span></div></div>
+  <div class="rota-day"><div class="rota-hdr"><span class="rota-date">18/jul (sáb)</span><span class="rota-pill rt-amb">transfer Fenghuang</span></div><div class="rota-desc">Carro privativo para Fenghuang. Tarde livre — explorar a cidade antiga à beira do rio.</div><div class="rota-tags"><span class="rt rt-liv">tarde livre</span><span class="rt rt-rua">cidade antiga</span></div></div>
+
+  <div class="city-hdr"><div class="city-emoji">🦢</div><div><div class="city-nm">Fenghuang — 18 a 19/jul</div><div class="city-sub">Chengyu Yunxi Resort · 1 noite · 150m da Ponte Hong</div></div></div>
+  <div class="rota-day"><div class="rota-hdr"><span class="rota-date">19/jul (dom)</span><span class="rota-pill rt-amb">transfer Zhangjiajie</span></div><div class="rota-desc">Manhã: visita Fenghuang — Muralha Antiga, Ponte Hongqiao. Almoço incluso. À tarde: transfer de volta para Zhangjiajie (~4h de carro).</div><div class="rota-tags"><span class="rt rt-inc">almoço incluso</span><span class="rt rt-rua">manhã na cidade antiga</span></div></div>
+
+  <div class="city-hdr"><div class="city-emoji">⛰️</div><div><div class="city-nm">Zhangjiajie — 19 a 20/jul</div><div class="city-sub">Wyndham Garden Tianmen Mountain ★★★★★ · 1 noite</div></div></div>
+  <div class="rota-day"><div class="rota-hdr"><span class="rota-date">20/jul (seg)</span><span class="rota-pill rt-amb">transfer Chengdu</span></div><div class="rota-desc">Voo 3U6782, 09h00 → 10h30. Zhangjiajie → Chengdu. Transfer in. Almoço incluso em Chengdu.</div><div class="rota-tags"><span class="rt rt-inc">almoço incluso em Chengdu</span></div></div>
+
+  <div class="city-hdr"><div class="city-emoji">🐼</div><div><div class="city-nm">Chengdu — 20 a 23/jul</div><div class="city-sub">Tianfu Sunshine Hotel ⭐8.7 · 3 noites</div></div></div>
+  <div class="rota-day"><div class="rota-hdr"><span class="rota-date">21/jul (ter)</span><span class="rota-pill tb">pandas + ópera</span></div><div class="rota-desc">Base de Pandas, Templo Wenshu, Rua Antiga Jinli. À noite: Ópera Sichuan no Teatro Shu Feng Ya Yun (show de troca de máscaras!).</div><div class="rota-tags"><span class="rt rt-inc">jantar incluso</span><span class="rt rt-rua">Rua Jinli</span></div></div>
+  <div class="rota-day"><div class="rota-hdr"><span class="rota-date">22/jul (qua)</span><span class="rota-pill tg">Leshan</span></div><div class="rota-desc">Cruzeiro em Buda Leshan — maior estátua de Buda do mundo esculpida em rocha.</div><div class="rota-tags"><span class="rt rt-inc">almoço incluso</span><span class="rt rt-rua">hot pot à noite!</span></div></div>
+  <div class="rota-day"><div class="rota-hdr"><span class="rota-date">23/jul (qui)</span><span class="rota-pill rt-amb">transfer Shanghai</span></div><div class="rota-desc">Transfer out. Chengdu → Shanghai por voo. Transfer in.</div><div class="rota-tags"><span class="rt rt-inc">almoço incluso</span></div></div>
+
+  <div class="city-hdr"><div class="city-emoji">🌆</div><div><div class="city-nm">Shanghai — 23 a 26/jul</div><div class="city-sub">Holiday Inn Shanghai Vista · 3 noites</div></div></div>
+  <div class="rota-day"><div class="rota-hdr"><span class="rota-date">24/jul (sex)</span><span class="rota-pill tb">templos + Bund</span></div><div class="rota-desc">Templo Longhua, Buda de Jade, Jardim Yuyuan, The Bund.</div><div class="rota-tags"><span class="rt rt-inc">almoço incluso</span><span class="rt rt-rua">Yuyuan — xiaolongbao!</span></div></div>
+  <div class="rota-day"><div class="rota-hdr"><span class="rota-date">25/jul (sáb)</span><span class="rota-pill tb">último dia</span></div><div class="rota-desc">Jardim Yuyuan, cerimônia do chá, Torre Jinmao. Último jantar da viagem!</div><div class="rota-tags"><span class="rt rt-inc">almoço incluso</span><span class="rt rt-inc">chá incluso</span></div></div>
+  <div class="rota-day"><div class="rota-hdr"><span class="rota-date">26/jul (dom)</span><span class="rota-pill rt-amb">partida</span></div><div class="rota-desc">Check out → aeroporto Pudong (PVG). Voo PVG → IST → GRU.</div><div class="rota-tags"><span class="rt rt-inc">café incluso</span></div></div>
+</div>
+</div>
+
+<!-- ===== MOMENTOS LIVRES ===== -->
+<div class="section" id="livres">
+<div class="container">
+  <div class="section-header">
+    <div class="sec-eye">Organização pessoal</div>
+    <div class="sec-title">Momentos livres</div>
+  </div>
+  <div class="hl hl-purple" style="margin-bottom:1.25rem">🌅 Turnos em que vocês estão por conta — para caminhar, comer na rua, explorar ou descansar. Os jantares são quase todos livres e não estão listados individualmente.</div>
+
+  <div class="city-hdr"><div class="city-emoji">🏛️</div><div><div class="city-nm">Pequim</div><div class="city-sub">11–14/jul</div></div></div>
+  <div class="rota-day"><div class="rota-hdr"><span class="rota-date">11/jul (sáb)</span><span class="rota-pill" style="background:var(--purple-light);color:var(--purple)">tarde + noite livre</span></div><div class="rota-desc">Chegada ~15h45. Primeiro contato com Pequim — <strong>Rua Wangfujing</strong> começa logo abaixo do hotel. Comida de rua, tanghulu, escorpião frito.</div><div class="rota-tags"><span class="rt rt-liv">tarde livre</span><span class="rt rt-liv">noite livre</span><span class="rt rt-rua">Wangfujing</span></div></div>
+  <div class="rota-day"><div class="rota-hdr"><span class="rota-date">12 e 13/jul</span><span class="rota-pill" style="background:var(--purple-light);color:var(--purple)">noites livres</span></div><div class="rota-desc">Dias cheios com tour guiado. As noites ficam livres após os teatros.</div><div class="rota-tags"><span class="rt rt-liv">noite livre (x2)</span></div></div>
+
+  <div class="city-hdr"><div class="city-emoji">🏯</div><div><div class="city-nm">Xi'an</div><div class="city-sub">14–15/jul · só 1 noite</div></div></div>
+  <div class="rota-day"><div class="rota-hdr"><span class="rota-date">14/jul (ter)</span><span class="rota-pill" style="background:var(--purple-light);color:var(--purple)">noite livre</span></div><div class="rota-desc">Após jantar de dumplings e Show Dinastia Tang, se sobrar energia: <strong>Rua Muçulmana (Huimin Jie)</strong> tem barracas abertas até tarde. A ~10min de DiDi do hotel.</div><div class="rota-tags"><span class="rt rt-liv">noite livre</span><span class="rt rt-rua">Rua Muçulmana</span></div></div>
+
+  <div class="city-hdr"><div class="city-emoji">⛰️</div><div><div class="city-nm">Zhangjiajie</div><div class="city-sub">15–18/jul</div></div></div>
+  <div class="rota-day"><div class="rota-hdr"><span class="rota-date">15, 16 e 17/jul</span><span class="rota-pill" style="background:var(--purple-light);color:var(--purple)">noites livres</span></div><div class="rota-desc">Dias intensos nas montanhas. Noites livres para descanso, mercado noturno local ou piscina do Qinghe Jinjiang.</div><div class="rota-tags"><span class="rt rt-liv">noite livre (x3)</span><span class="rt rt-rua">mercado noturno</span></div></div>
+
+  <div class="city-hdr"><div class="city-emoji">🦢</div><div><div class="city-nm">Fenghuang ⭐</div><div class="city-sub">18–19/jul · melhor momento livre da viagem</div></div></div>
+  <div class="rota-day"><div class="rota-hdr"><span class="rota-date">18/jul (sáb)</span><span class="rota-pill" style="background:var(--purple-light);color:var(--purple)">tarde + noite livre ⭐</span></div><div class="rota-desc">Chegada à tarde. A cidade antiga fica a 500m do hotel — caminhar à beira do Rio Tuojiang, ruelas de pedra, bolas de arroz glutinoso nas barracas. À noite a cidade iluminada é uma das vistas mais bonitas do roteiro.</div><div class="rota-tags"><span class="rt rt-liv">tarde livre</span><span class="rt rt-liv">noite livre</span><span class="rt rt-rua">cidade antiga</span></div></div>
+  <div class="rota-day"><div class="rota-hdr"><span class="rota-date">19/jul (dom)</span><span class="rota-pill rt-amb">manhã visitação → tarde transfer</span></div><div class="rota-desc">Manhã com visita guiada (Muralha + Ponte Hongqiao) e almoço incluso. À tarde transfer de volta a Zhangjiajie (~4h). Sem tempo livre neste dia.</div><div class="rota-tags"><span class="rt rt-inc">almoço incluso</span><span class="rt rt-tur">tour manhã</span></div></div>
+
+  <div class="city-hdr"><div class="city-emoji">🐼</div><div><div class="city-nm">Chengdu</div><div class="city-sub">20–23/jul</div></div></div>
+  <div class="rota-day"><div class="rota-hdr"><span class="rota-date">20/jul (seg)</span><span class="rota-pill" style="background:var(--purple-light);color:var(--purple)">tarde livre</span></div><div class="rota-desc">Chegada ~10h30. Almoço incluso. Tarde livre para explorar — <strong>Kuan Zhai Alley</strong> a 1,4km, ótimo para caminhar e comer.</div><div class="rota-tags"><span class="rt rt-liv">tarde livre</span><span class="rt rt-rua">Kuan Zhai Alley</span></div></div>
+  <div class="rota-day"><div class="rota-hdr"><span class="rota-date">21 e 22/jul</span><span class="rota-pill" style="background:var(--purple-light);color:var(--purple)">noites livres</span></div><div class="rota-desc">22/jul é a noite do <strong>hot pot!</strong> Melhor momento para experimentar o hot pot picante de Chengdu — cidade natal do prato. Huangcheng Laoma é o restaurante sugerido.</div><div class="rota-tags"><span class="rt rt-liv">noite livre (x2)</span><span class="rt rt-rua">hot pot 22/jul ⭐</span></div></div>
+
+  <div class="city-hdr"><div class="city-emoji">🌆</div><div><div class="city-nm">Shanghai</div><div class="city-sub">23–26/jul</div></div></div>
+  <div class="rota-day"><div class="rota-hdr"><span class="rota-date">23, 24 e 25/jul</span><span class="rota-pill" style="background:var(--purple-light);color:var(--purple)">noites livres</span></div><div class="rota-desc"><strong>The Bund iluminado à noite</strong> é imperdível (DiDi ou metrô do hotel). 25/jul é o <strong>último jantar da viagem</strong> — Din Tai Fung para xiaolongbao Michelin ou última caminhada no Yuyuan.</div><div class="rota-tags"><span class="rt rt-liv">noite livre (x3)</span><span class="rt rt-rua">The Bund à noite</span><span class="rt rt-rua">último jantar 25/jul ⭐</span></div></div>
+
+  <div class="hl hl-gold" style="margin-top:1.25rem">📊 <strong>Resumo:</strong> 2 tardes livres (11/jul chegada e 20/jul Chengdu) · 1 tarde especial em Fenghuang (18/jul) · ~11 noites livres ao longo da viagem · Os momentos mais gostosos para explorar sem pressa: Fenghuang (18/jul) e Chengdu (22/jul hot pot).</div>
+</div>
+</div>
+
+<!-- ===== VOOS & HOTÉIS ===== -->
+<div class="section" id="voos">
+<div class="container">
+  <div class="section-header">
+    <div class="sec-eye">Logística</div>
+    <div class="sec-title">Voos & Hotéis</div>
+  </div>
+
+  <div class="sub-lbl">✈️ Voos internacionais — PNR: VZ2IMM</div>
+  <div class="flight-card">
+    <div class="flight-legs">
+      <div><div class="flight-route"><span class="flight-iata">GRU</span><span class="flight-arrow">→</span><span class="flight-iata">IST</span><span class="flight-arrow">→</span><span class="flight-iata">PEK</span></div><div class="flight-info"><span class="flight-time">10/jul 04:10</span> → <span class="flight-time">11/jul 15:35</span><br>Ida — conexão Istambul</div></div>
+      <div><div class="flight-route"><span class="flight-iata">PVG</span><span class="flight-arrow">→</span><span class="flight-iata">IST</span><span class="flight-arrow">→</span><span class="flight-iata">GRU</span></div><div class="flight-info"><span class="flight-time">26/jul 22:25</span> → <span class="flight-time">27/jul 17:45</span><br>Volta — conexão Istambul</div></div>
+    </div>
+  </div>
+
+  <div class="sub-lbl" style="margin-top:1.5rem">🏨 Hotéis confirmados</div>
+
+  <div class="hotel-card">
+    <div class="hotel-top"><div><div class="hotel-city">Pequim</div><div class="hotel-name">Novotel Peace Hotel</div></div><div class="hotel-dates">11–14/jul<br>3 noites</div></div>
+    <div class="hotel-body">
+      <div class="hotel-rating">⭐ 4/5 TripAdvisor</div>
+      <div class="grid2">
+        <div class="info-block"><div class="info-lbl">Localização</div><div class="info-row">Wangfujing — coração de Pequim</div><div class="info-row">10min a pé da Cidade Proibida</div></div>
+        <div class="info-block"><div class="info-lbl">Por perto</div><div class="info-row">Rua Wangfujing (comida de rua)</div><div class="info-row">Oriental Plaza shopping</div></div>
+      </div>
+      <div class="tag-row"><span class="tag tg">localização excelente</span><span class="tag tg">café da manhã variado</span><span class="tag ta">quartos datados</span></div>
+    </div>
+  </div>
+
+  <div class="hotel-card">
+    <div class="hotel-top"><div><div class="hotel-city">Xi'an</div><div class="hotel-name">Tiantan Times Hotel</div></div><div class="hotel-dates">14–15/jul<br>1 noite</div></div>
+    <div class="hotel-body">
+      <div class="hotel-rating">⭐ 4/5 · #31 de 1.228 em Xi'an</div>
+      <div class="grid2">
+        <div class="info-block"><div class="info-lbl">Localização</div><div class="info-row">Distrito histórico de Xi'an</div><div class="info-row">2,3km da Torre do Sino</div></div>
+        <div class="info-block"><div class="info-lbl">Por perto</div><div class="info-row">Rua Muçulmana a 10min</div><div class="info-row">Muralha de Xi'an próxima</div></div>
+      </div>
+      <div class="tag-row"><span class="tag tg">bem avaliado</span><span class="tag tb">só 1 noite</span></div>
+    </div>
+  </div>
+
+  <div class="hotel-card">
+    <div class="hotel-top"><div><div class="hotel-city">Zhangjiajie</div><div class="hotel-name">Qinghe Jinjiang Intl Hotel</div></div><div class="hotel-dates">15–18/jul<br>3 noites</div></div>
+    <div class="hotel-body">
+      <div class="hotel-rating">⭐ 9.1/10 Trip.com — melhor do roteiro!</div>
+      <div class="grid2">
+        <div class="info-block"><div class="info-lbl">Localização</div><div class="info-row">10min a pé da entrada do Parque Nacional</div><div class="info-row">5–10min de carro do Baofeng Lake</div></div>
+        <div class="info-block"><div class="info-lbl">Por perto</div><div class="info-row">Xibu Street (mercado) a 10min</div><div class="info-row">Restaurantes e food market próximos</div></div>
+      </div>
+      <div class="tag-row"><span class="tag tg">piscina coberta + spa</span><span class="tag tg">quartos espaçosos</span><span class="tag ta">café lotado em horário de grupo</span></div>
+      <div class="hl hl-amber" style="margin-top:8px">💡 Chegar cedo no café da manhã — grupos de ônibus enchem rápido.</div>
+    </div>
+  </div>
+
+  <div class="hotel-card">
+    <div class="hotel-top"><div><div class="hotel-city">Fenghuang</div><div class="hotel-name">Chengyu Yunxi Resort</div></div><div class="hotel-dates">18–19/jul<br>1 noite</div></div>
+    <div class="hotel-body">
+      <div class="hotel-rating">⭐ Bem avaliado · aberto em 2023</div>
+      <div class="grid2">
+        <div class="info-block"><div class="info-lbl">Localização</div><div class="info-row">150m da Ponte Hong</div><div class="info-row">0,5km da Cidade Antiga</div></div>
+        <div class="info-block"><div class="info-lbl">Por perto</div><div class="info-row">Rua Tuojiang Ancient Street a 0,7km</div><div class="info-row">Restaurantes locais próximos</div></div>
+      </div>
+      <div class="tag-row"><span class="tag tg">vista da Ponte Hong</span><span class="tag tg">estrutura nova</span><span class="tag ta">café simples</span></div>
+    </div>
+  </div>
+
+  <div class="hotel-card">
+    <div class="hotel-top"><div><div class="hotel-city">Zhangjiajie — 2ª estadia</div><div class="hotel-name">Wyndham Garden Tianmen Mountain</div></div><div class="hotel-dates">19–20/jul<br>1 noite</div></div>
+    <div class="hotel-body">
+      <div class="hotel-rating">★★★★★ 5 estrelas · upgrade incluído no pacote</div>
+      <div class="grid2">
+        <div class="info-block"><div class="info-lbl">Por que esta mudança</div><div class="info-row">Fenghuang fica ~4h de carro de Zhangjiajie</div><div class="info-row">Evita acordar muito cedo para o voo 09h</div></div>
+        <div class="info-block"><div class="info-lbl">Voo do dia seguinte</div><div class="info-row">3U6782 · 09h00 → 10h30</div><div class="info-row">Zhangjiajie → Chengdu</div></div>
+      </div>
+      <div class="tag-row"><span class="tag tg">5 estrelas com desconto</span><span class="tag tg">próximo ao aeroporto</span><span class="tag tb">estratégico para o voo cedo</span></div>
+    </div>
+  </div>
+
+  <div class="hotel-card">
+    <div class="hotel-top"><div><div class="hotel-city">Chengdu</div><div class="hotel-name">Tianfu Sunshine Hotel</div></div><div class="hotel-dates">20–23/jul<br>3 noites</div></div>
+    <div class="hotel-body">
+      <div class="hotel-rating">⭐ 8.7/10 Booking</div>
+      <div class="grid2">
+        <div class="info-block"><div class="info-lbl">Localização</div><div class="info-row">Qingyang District — centro</div><div class="info-row">15min a pé do Mosteiro Wenshu</div></div>
+        <div class="info-block"><div class="info-lbl">Por perto</div><div class="info-row">Kuan Zhai Alley a 1,4km</div><div class="info-row">Chunxi Road a 1,2km</div></div>
+      </div>
+      <div class="tag-row"><span class="tag tg">café da manhã excelente</span><span class="tag tg">piscina</span><span class="tag tr">⚠️ cuidado com a água do frigobar</span></div>
+    </div>
+  </div>
+
+  <div class="hotel-card">
+    <div class="hotel-top"><div><div class="hotel-city">Shanghai</div><div class="hotel-name">Holiday Inn Shanghai Vista</div></div><div class="hotel-dates">23–26/jul<br>3 noites</div></div>
+    <div class="hotel-body">
+      <div class="hotel-rating">⭐ 4/5 TripAdvisor · 1.800+ avaliações</div>
+      <div class="grid2">
+        <div class="info-block"><div class="info-lbl">Localização</div><div class="info-row">Chang Shou Road — Pu Tuo District</div><div class="info-row">4 linhas de metrô próximas!</div></div>
+        <div class="info-block"><div class="info-lbl">Por perto</div><div class="info-row">Shopping mall conectado ao hotel</div><div class="info-row">10min de metrô do Bund</div></div>
+      </div>
+      <div class="tag-row"><span class="tag tg">piscina + spa</span><span class="tag tg">café variado</span><span class="tag ta">use DiDi ou metrô — táxi difícil</span></div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ===== FRASES ===== -->
+<div class="section" id="frases">
+<div class="container">
+  <div class="section-header">
+    <div class="sec-eye">Comunicação</div>
+    <div class="sec-title">Frases essenciais em mandarim</div>
+  </div>
+  <div class="hl hl-green" style="margin-bottom:1rem">💡 Mostre a tela para a pessoa ler — o mandarim escrito funciona muito melhor do que tentar pronunciar!</div>
+
+  <div class="phrase-cat">Cumprimentos</div>
+  <div class="phrase-card"><div><div class="phrase-pt">Olá</div><div class="phrase-zh">你好</div><div class="phrase-py">Nǐ hǎo</div></div><div class="phrase-pron">nee how</div></div>
+  <div class="phrase-card"><div><div class="phrase-pt">Obrigado(a)</div><div class="phrase-zh">谢谢</div><div class="phrase-py">Xiè xiè</div></div><div class="phrase-pron">shiè shiè</div></div>
+  <div class="phrase-card"><div><div class="phrase-pt">De nada</div><div class="phrase-zh">不客气</div><div class="phrase-py">Bù kèqi</div></div><div class="phrase-pron">bù ke-chí</div></div>
+  <div class="phrase-card"><div><div class="phrase-pt">Desculpe</div><div class="phrase-zh">对不起</div><div class="phrase-py">Duìbuqǐ</div></div><div class="phrase-pron">duei-bú-chi</div></div>
+  <div class="phrase-card"><div><div class="phrase-pt">Sim / Não</div><div class="phrase-zh">是 / 不是</div><div class="phrase-py">Shì / Bú shì</div></div><div class="phrase-pron">shr / bú shr</div></div>
+
+  <div class="phrase-cat">Comida & restaurante</div>
+  <div class="phrase-card"><div><div class="phrase-pt">Quero este (apontando)</div><div class="phrase-zh">我要这个</div><div class="phrase-py">Wǒ yào zhège</div></div><div class="phrase-pron">uô iao jè-guê</div></div>
+  <div class="phrase-card"><div><div class="phrase-pt">Quanto custa?</div><div class="phrase-zh">多少钱？</div><div class="phrase-py">Duōshǎo qián?</div></div><div class="phrase-pron">duô-shau chién?</div></div>
+  <div class="phrase-card"><div><div class="phrase-pt">Muito gostoso!</div><div class="phrase-zh">很好吃！</div><div class="phrase-py">Hěn hào chī!</div></div><div class="phrase-pron">hên hao chr!</div></div>
+  <div class="phrase-card"><div><div class="phrase-pt">Sem apimentado</div><div class="phrase-zh">不辣</div><div class="phrase-py">Bù là</div></div><div class="phrase-pron">bù la</div></div>
+  <div class="phrase-card"><div><div class="phrase-pt">Pouco picante</div><div class="phrase-zh">少一点辣</div><div class="phrase-py">Shǎo yīdiǎn là</div></div><div class="phrase-pron">shau i-dién la</div></div>
+  <div class="phrase-card"><div><div class="phrase-pt">A conta, por favor</div><div class="phrase-zh">买单</div><div class="phrase-py">Mǎi dān</div></div><div class="phrase-pron">mai dan</div></div>
+  <div class="phrase-card"><div><div class="phrase-pt">Água / Cerveja</div><div class="phrase-zh">水 / 啤酒</div><div class="phrase-py">Shuǐ / Píjiǔ</div></div><div class="phrase-pron">shwei / pi-jiôu</div></div>
+
+  <div class="phrase-cat">Transporte & navegação</div>
+  <div class="phrase-card"><div><div class="phrase-pt">Onde fica o metrô?</div><div class="phrase-zh">地铁在哪里？</div><div class="phrase-py">Dìtiě zài nǎlǐ?</div></div><div class="phrase-pron">di-tiê dzai na-li?</div></div>
+  <div class="phrase-card"><div><div class="phrase-pt">Quero ir para aqui (mostrar mapa)</div><div class="phrase-zh">我要去这里</div><div class="phrase-py">Wǒ yào qù zhèlǐ</div></div><div class="phrase-pron">uô iao chü jè-li</div></div>
+  <div class="phrase-card"><div><div class="phrase-pt">Banheiro</div><div class="phrase-zh">厕所在哪里？</div><div class="phrase-py">Cèsuǒ zài nǎlǐ?</div></div><div class="phrase-pron">tsê-suô dzai na-li?</div></div>
+  <div class="phrase-card"><div><div class="phrase-pt">Pode tirar uma foto?</div><div class="phrase-zh">可以帮我拍照吗？</div><div class="phrase-py">Kěyǐ bāng wǒ pāizhào ma?</div></div><div class="phrase-pron">ke-i bâng uô pai-jau ma?</div></div>
+
+  <div class="phrase-cat">Emergências</div>
+  <div class="phrase-card"><div><div class="phrase-pt">Preciso de ajuda</div><div class="phrase-zh">我需要帮助</div><div class="phrase-py">Wǒ xūyào bāngzhù</div></div><div class="phrase-pron">uô shü-iao bâng-jü</div></div>
+  <div class="phrase-card"><div><div class="phrase-pt">Não entendo</div><div class="phrase-zh">我不懂</div><div class="phrase-py">Wǒ bù dǒng</div></div><div class="phrase-pron">uô bù dong</div></div>
+  <div class="phrase-card"><div><div class="phrase-pt">Fala inglês?</div><div class="phrase-zh">你会说英语吗？</div><div class="phrase-py">Nǐ huì shuō Yīngyǔ ma?</div></div><div class="phrase-pron">nee huêi shuô ing-yü ma?</div></div>
+  <div class="phrase-card"><div><div class="phrase-pt">Hospital / Médico</div><div class="phrase-zh">医院 / 医生</div><div class="phrase-py">Yīyuàn / Yīshēng</div></div><div class="phrase-pron">i-yuén / i-sheng</div></div>
+</div>
+</div>
+
+<!-- ===== COMIDAS ===== -->
+<div class="section" id="comidas">
+<div class="container">
+  <div class="section-header">
+    <div class="sec-eye">Gastronomia</div>
+    <div class="sec-title">Comidas típicas por cidade</div>
+  </div>
+
+  <div class="city-hdr"><div class="city-emoji">🏛️</div><div><div class="city-nm">Pequim</div><div class="city-sub">Arte imperial · Wangfujing · pato assado</div></div></div>
+  <div class="food-card"><div class="food-top"><div class="food-name">Tanghulu 糖葫芦</div><span class="tag tr">🛒 rua</span></div><div class="food-desc">Espetinho de frutas caramelizadas — crocante por fora, azedinho por dentro. Ícone das ruas de Pequim.</div></div>
+  <div class="food-card"><div class="food-top"><div class="food-name">Jianbing 煎饼</div><span class="tag tr">🛒 rua</span></div><div class="food-desc">Crepe salgado com ovo, coentro e biscoito crocante. Café da manhã de rua mais popular da China.</div></div>
+  <div class="food-card"><div class="food-top"><div class="food-name">Escorpião frito 油炸蝎子</div><span class="tag tr">🛒 rua</span></div><div class="food-desc">Símbolo da Wangfujing — logo abaixo do hotel! Crocante, sabor neutro. Vale a ousadia!</div></div>
+  <div class="hl hl-gold">🍽️ <strong>Restaurante especial:</strong> Dadong Roast Duck — pato de Pequim mais elogiado. ~CNY 200–300/pessoa. Reserva recomendada.</div>
+
+  <div class="city-hdr"><div class="city-emoji">🏯</div><div><div class="city-nm">Xi'an</div><div class="city-sub">Cozinha muçulmana · Rua Muçulmana</div></div></div>
+  <div class="food-card"><div class="food-top"><div class="food-name">Rou Jia Mo 肉夹馍</div><span class="tag tr">🛒 rua</span></div><div class="food-desc">O "hambúrguer chinês" — pão pita crocante com carne de cordeiro bem temperada.</div></div>
+  <div class="food-card"><div class="food-top"><div class="food-name">Biang Biang Mian biángbiáng面</div><span class="tag tr">🛒 rua</span></div><div class="food-desc">Macarrão espesso tipo cinto com pimenta e alho. O caractere "biang" é o mais complexo do chinês!</div></div>
+  <div class="food-card"><div class="food-top"><div class="food-name">Suco de romã 石榴汁</div><span class="tag tr">🛒 rua</span></div><div class="food-desc">Xi'an é famosa pelas romãs. Espremido na hora — refrescante e delicioso.</div></div>
+
+  <div class="city-hdr"><div class="city-emoji">⛰️</div><div><div class="city-nm">Zhangjiajie</div><div class="city-sub">Cozinha Hunan — apimentada e defumada</div></div></div>
+  <div class="food-card"><div class="food-top"><div class="food-name">Tofu defumado 血豆腐</div><span class="tag tr">🛒 rua</span></div><div class="food-desc">Especialidade da etnia Tujia — defumado e frito, crocante por fora e macio por dentro.</div></div>
+  <div class="food-card"><div class="food-top"><div class="food-name">Pastel de Kudzu 葛根糕</div><span class="tag tr">🛒 rua</span></div><div class="food-desc">Vendido dentro do Parque Nacional! Adocicado com sementes de abóbora. Viciante!</div></div>
+
+  <div class="city-hdr"><div class="city-emoji">🦢</div><div><div class="city-nm">Fenghuang</div><div class="city-sub">Culinária étnica Miao</div></div></div>
+  <div class="food-card"><div class="food-top"><div class="food-name">Bolas de arroz glutinoso 糯米糍</div><span class="tag tr">🛒 rua ⭐</span></div><div class="food-desc">Coloridas, adocicadas, de vários sabores. Viajantes voltam comprar no dia seguinte!</div></div>
+  <div class="food-card"><div class="food-top"><div class="food-name">Pato defumado 腊鸭</div><span class="tag tr">🛒 rua</span></div><div class="food-desc">Pato seco com pimenta e especiarias locais. Sabor intenso e marcante.</div></div>
+
+  <div class="city-hdr"><div class="city-emoji">🐼</div><div><div class="city-nm">Chengdu</div><div class="city-sub">Capital gastronômica da China ⭐</div></div></div>
+  <div class="food-card"><div class="food-top"><div class="food-name">Mapo Tofu 麻婆豆腐</div><span class="tag tr">🛒 rua ⭐</span></div><div class="food-desc">Tofu macio em molho de pimenta com pimenta-de-sichuan (anestesia a língua!). Prato símbolo de Chengdu.</div></div>
+  <div class="food-card"><div class="food-top"><div class="food-name">Espetinhos de coelho 兔丁</div><span class="tag tr">🛒 rua</span></div><div class="food-desc">Chengdu consome mais coelho que qualquer outra cidade do mundo! Especialmente na Rua Jinli (21/jul).</div></div>
+  <div class="food-card"><div class="food-top"><div class="food-name">Dan Dan Mian 担担面</div><span class="tag tr">🛒 rua</span></div><div class="food-desc">Macarrão fino com molho de gergelim, pimenta e carne de porco. Barato e viciante.</div></div>
+  <div class="hl hl-gold">🍽️ <strong>Restaurante especial:</strong> Huangcheng Laoma Hot Pot — show de troca de máscaras ao vivo! ~CNY 100–150/pessoa. 106 Qintai Road.</div>
+
+  <div class="city-hdr"><div class="city-emoji">🌆</div><div><div class="city-nm">Shanghai</div><div class="city-sub">Cosmopolita — xiaolongbao é a estrela</div></div></div>
+  <div class="food-card"><div class="food-top"><div class="food-name">Xiaolongbao 小笼包</div><span class="tag tr">🛒 rua ⭐</span></div><div class="food-desc">Dumpling de sopa! Morda um cantinho, sorva a sopa, depois coma. Barracas do Yuyuan têm os melhores!</div></div>
+  <div class="food-card"><div class="food-top"><div class="food-name">Sheng Jian Bao 生煎包</div><span class="tag tr">🛒 rua</span></div><div class="food-desc">Irmão frito do xiaolongbao — base dourada e crocante, topo macio com gergelim.</div></div>
+  <div class="food-card"><div class="food-top"><div class="food-name">Scallion Pancake 葱油饼</div><span class="tag tr">🛒 rua</span></div><div class="food-desc">Panqueca crocante de cebolinha feita na chapa. Uma das comidas de rua mais viciantes de Shanghai.</div></div>
+  <div class="hl hl-gold">🍽️ <strong>Restaurante especial:</strong> Din Tai Fung (鼎泰丰) — xiaolongbao Michelin. Último jantar 25/jul! ~CNY 100–180/pessoa.</div>
+</div>
+</div>
+
+<!-- ===== APPS ===== -->
+<div class="section" id="apps">
+<div class="container">
+  <div class="section-header">
+    <div class="sec-eye">Tecnologia</div>
+    <div class="sec-title">Apps essenciais</div>
+  </div>
+  <div class="hl hl-red" style="margin-bottom:1rem">⚠️ Todos devem ser baixados e configurados NO BRASIL. Na China não dá para baixar apps ocidentais normalmente.</div>
+
+  <div class="sub-lbl">🔒 VPN</div>
+  <div class="app-card"><div class="app-icon" style="background:#FAEEDA">🔐</div><div><div class="app-name">ExpressVPN <span class="app-badge" style="background:var(--green-light);color:var(--green)">você ok</span><span class="app-badge" style="background:var(--red-light);color:var(--red)">comp. testar</span></div><div class="app-desc">VPN principal. Instalar e testar login no Brasil. Desligar quando usar Alipay, DiDi e Baidu Translate.</div></div></div>
+
+  <div class="sub-lbl">💳 Pagamentos</div>
+  <div class="app-card"><div class="app-icon" style="background:#E6F1FB">💙</div><div><div class="app-name">Alipay <span class="app-badge" style="background:var(--red-light);color:var(--red)">pendente — ambos</span></div><div class="app-desc">Essencial! Baixar → ativar Tour Pass → vincular Wise → ativar mini programa de transporte para QR do metrô. Desligar VPN quando usar.</div></div></div>
+  <div class="app-card"><div class="app-icon" style="background:#E1F5EE">💚</div><div><div class="app-name">Wise <span class="app-badge" style="background:var(--green-light);color:var(--green)">ok</span></div><div class="app-desc">Cartão em dólar. Funciona vinculado ao Alipay e para pagamentos diretos.</div></div></div>
+
+  <div class="sub-lbl">🗺️ Mapas & Transporte</div>
+  <div class="app-card"><div class="app-icon" style="background:#EAF3DE">🗺️</div><div><div class="app-name">Maps.me</div><div class="app-desc">GPS offline. Baixar o mapa da China antes de viajar. Funciona sem VPN e sem internet.</div></div></div>
+  <div class="app-card"><div class="app-icon" style="background:#FAEEDA">🚇</div><div><div class="app-name">MetroMan</div><div class="app-desc">Melhor app de metrô offline em inglês. Cobre Pequim, Shanghai, Chengdu e Xi'an. Indica linha, baldeação, tempo e preço.</div></div></div>
+  <div class="app-card"><div class="app-icon" style="background:#EEEDFE">🚗</div><div><div class="app-name">DiDi <span class="app-badge" style="background:var(--red-light);color:var(--red)">pendente — ambos</span></div><div class="app-desc">Uber chinês. Cadastrar cartão antes de viajar. Essencial para Zhangjiajie, Fenghuang e deslocamentos noturnos.</div></div></div>
+
+  <div class="sub-lbl">🌐 Tradução & Comunicação</div>
+  <div class="app-card"><div class="app-icon" style="background:#E6F1FB">🔵</div><div><div class="app-name">Baidu Translate <span class="app-badge" style="background:var(--green-light);color:var(--green)">sem VPN</span></div><div class="app-desc">Melhor tradutor na China. Câmera para cardápios e placas. Modo conversa em tempo real.</div></div></div>
+  <div class="app-card"><div class="app-icon" style="background:#EAF3DE">🌍</div><div><div class="app-name">Google Tradutor + mandarim offline</div><div class="app-desc">Backup com VPN ativa. Baixar o pacote de mandarim offline antes de embarcar.</div></div></div>
+  <div class="app-card"><div class="app-icon" style="background:#E1F5EE">💬</div><div><div class="app-name">WeChat <span class="app-badge" style="background:var(--green-light);color:var(--green)">sem VPN</span><span class="app-badge" style="background:var(--red-light);color:var(--red)">pendente — ambos</span></div><div class="app-desc">App de mensagens não bloqueado na China. Criar conta no Brasil e avisar família/amigos para baixar também.</div></div></div>
+
+  <div class="hl hl-amber" style="margin-top:1rem">⚠️ <strong>Regra de ouro:</strong> VPN <strong>desligada</strong> para Alipay, DiDi e Baidu Translate. VPN <strong>ligada</strong> para Google, WhatsApp, Instagram e Gmail.</div>
+</div>
+</div>
+
+<!-- ===== LEMBRANÇAS ===== -->
+<div class="section" id="lembrancas">
+<div class="container">
+  <div class="section-header">
+    <div class="sec-eye">Pós-viagem</div>
+    <div class="sec-title">Lista de lembranças 🎁</div>
+  </div>
+  <div class="lemb-counter" id="lemb-counter">0 de 14 contemplados</div>
+  <div class="lemb-grid">
+    <div class="lemb-card" onclick="toggleLemb(this)"><div><div class="lemb-name">Giovanna</div><div class="lemb-status">pendente</div></div><div class="lemb-check"></div></div>
+    <div class="lemb-card" onclick="toggleLemb(this)"><div><div class="lemb-name">Marina</div><div class="lemb-status">pendente</div></div><div class="lemb-check"></div></div>
+    <div class="lemb-card" onclick="toggleLemb(this)"><div><div class="lemb-name">Isa</div><div class="lemb-status">pendente</div></div><div class="lemb-check"></div></div>
+    <div class="lemb-card" onclick="toggleLemb(this)"><div><div class="lemb-name">Brunna</div><div class="lemb-status">pendente</div></div><div class="lemb-check"></div></div>
+    <div class="lemb-card" onclick="toggleLemb(this)"><div><div class="lemb-name">Felipe</div><div class="lemb-status">pendente</div></div><div class="lemb-check"></div></div>
+    <div class="lemb-card" onclick="toggleLemb(this)"><div><div class="lemb-name">Julia</div><div class="lemb-status">pendente</div></div><div class="lemb-check"></div></div>
+    <div class="lemb-card" onclick="toggleLemb(this)"><div><div class="lemb-name">Caio</div><div class="lemb-status">pendente</div></div><div class="lemb-check"></div></div>
+    <div class="lemb-card" onclick="toggleLemb(this)"><div><div class="lemb-name">Pepa</div><div class="lemb-status">pendente</div></div><div class="lemb-check"></div></div>
+    <div class="lemb-card" onclick="toggleLemb(this)"><div><div class="lemb-name">Tau</div><div class="lemb-status">pendente</div></div><div class="lemb-check"></div></div>
+    <div class="lemb-card" onclick="toggleLemb(this)"><div><div class="lemb-name">Rafa</div><div class="lemb-status">pendente</div></div><div class="lemb-check"></div></div>
+    <div class="lemb-card" onclick="toggleLemb(this)"><div><div class="lemb-name">Aninha</div><div class="lemb-status">pendente</div></div><div class="lemb-check"></div></div>
+    <div class="lemb-card" onclick="toggleLemb(this)"><div><div class="lemb-name">Ícaro</div><div class="lemb-status">pendente</div></div><div class="lemb-check"></div></div>
+    <div class="lemb-card" onclick="toggleLemb(this)"><div><div class="lemb-name">Fernando (AT)</div><div class="lemb-status">pendente</div></div><div class="lemb-check"></div></div>
+    <div class="lemb-card" onclick="toggleLemb(this)"><div><div class="lemb-name">Marcos</div><div class="lemb-status">pendente</div></div><div class="lemb-check"></div></div>
+  </div>
+  <div class="hl hl-green" style="margin-top:1rem">💡 Fenghuang e Xi'an têm os melhores preços para lembranças autênticas. Shanghai (Yuyuan) é ótima para jade e leques de seda. Pechinchar é esperado — comece com 50% do preço pedido!</div>
+</div>
+</div>
+
+<div class="footer">China 2026 · 11–26 de julho · Boa viagem! 🇨🇳</div>
+
+<script>
+  var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxdoZd_n999VcEhw0a2m41D9urYgXoTLKLmNGMqAly2fFJ4b2RbhdiTarHP9eT6Im_Gzw/exec';
+  var saveTimer = null;
+  var isSyncing = false;
+
+  // ── NAV ──────────────────────────────────────────────────────────────
+  function showSection(id) {
+    document.querySelectorAll('.section').forEach(function(s){ s.classList.remove('active'); });
+    document.querySelectorAll('.nav-tab').forEach(function(t){ t.classList.remove('active'); });
+    document.getElementById(id).classList.add('active');
+    event.currentTarget.classList.add('active');
+    window.scrollTo(0, 0);
+  }
+
+  // ── ESTADO ───────────────────────────────────────────────────────────
+  function getState() {
+    var state = { checks: {}, lembs: {} };
+    document.querySelectorAll('#checklist .check-item').forEach(function(item, i) {
+      state.checks[i] = item.querySelector('.check-box').classList.contains('checked');
+    });
+    document.querySelectorAll('.lemb-card').forEach(function(card, i) {
+      state.lembs[i] = card.querySelector('.lemb-check').classList.contains('done');
+    });
+    return state;
+  }
+
+  function applyState(state) {
+    if (!state) return;
+    if (state.checks) {
+      document.querySelectorAll('#checklist .check-item').forEach(function(item, i) {
+        var box = item.querySelector('.check-box');
+        var title = item.querySelector('.check-title');
+        if (state.checks[i]) {
+          box.classList.add('checked');
+          if (title) title.classList.add('done');
+        } else {
+          box.classList.remove('checked');
+          if (title) title.classList.remove('done');
+        }
+      });
+    }
+    if (state.lembs) {
+      document.querySelectorAll('.lemb-card').forEach(function(card, i) {
+        var check = card.querySelector('.lemb-check');
+        var status = card.querySelector('.lemb-status');
+        if (state.lembs[i]) {
+          check.classList.add('done');
+          card.classList.add('checked-card');
+          if (status) status.textContent = '✓ presenteado';
+        } else {
+          check.classList.remove('done');
+          card.classList.remove('checked-card');
+          if (status) status.textContent = 'pendente';
+        }
+      });
+    }
+    updateProgress();
+    updateLembCounter();
+  }
+
+  // ── SYNC ─────────────────────────────────────────────────────────────
+  function setSyncStatus(msg, color) {
+    var el = document.getElementById('sync-status');
+    if (el) { el.textContent = msg; el.style.color = color || 'var(--ink-soft)'; }
+  }
+
+  function loadFromSheets() {
+    setSyncStatus('⟳ Carregando...', 'var(--blue)');
+    fetch(SCRIPT_URL)
+      .then(function(r){ return r.json(); })
+      .then(function(data) {
+        applyState(data);
+        setSyncStatus('✓ Sincronizado', 'var(--green)');
+      })
+      .catch(function() {
+        setSyncStatus('⚠ Offline — mudanças salvas localmente', 'var(--amber)');
+        var local = localStorage.getItem('china_guia_state');
+        if (local) { try { applyState(JSON.parse(local)); } catch(e){} }
+      });
+  }
+
+  function saveToSheets() {
+    var state = getState();
+    var json = JSON.stringify(state);
+    localStorage.setItem('china_guia_state', json);
+    setSyncStatus('⟳ Salvando...', 'var(--blue)');
+    fetch(SCRIPT_URL, {
+      method: 'POST',
+      body: json,
+      headers: { 'Content-Type': 'text/plain' }
+    })
+    .then(function(){ setSyncStatus('✓ Salvo e sincronizado', 'var(--green)'); })
+    .catch(function(){ setSyncStatus('⚠ Salvo localmente (sem internet)', 'var(--amber)'); });
+  }
+
+  function scheduleSave() {
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(saveToSheets, 800);
+  }
+
+  // ── CHECKLIST ────────────────────────────────────────────────────────
+  function toggleCheck(item) {
+    var box = item.querySelector('.check-box');
+    var title = item.querySelector('.check-title');
+    box.classList.toggle('checked');
+    if (title) title.classList.toggle('done');
+    updateProgress();
+    scheduleSave();
+  }
+
+  function updateProgress() {
+    var total = document.querySelectorAll('#checklist .check-item').length;
+    var done = document.querySelectorAll('#checklist .check-box.checked').length;
+    var pct = Math.round((done / total) * 100);
+    document.getElementById('prog-fill').style.width = pct + '%';
+    document.getElementById('prog-pct').textContent = pct + '%';
+    document.getElementById('prog-label').textContent = done + ' de ' + total + ' itens concluídos';
+  }
+
+  // ── LEMBRANÇAS ───────────────────────────────────────────────────────
+  function toggleLemb(card) {
+    var check = card.querySelector('.lemb-check');
+    var status = card.querySelector('.lemb-status');
+    check.classList.toggle('done');
+    card.classList.toggle('checked-card');
+    status.textContent = check.classList.contains('done') ? '✓ presenteado' : 'pendente';
+    updateLembCounter();
+    scheduleSave();
+  }
+
+  function updateLembCounter() {
+    var total = document.querySelectorAll('.lemb-card').length;
+    var done = document.querySelectorAll('.lemb-check.done').length;
+    document.getElementById('lemb-counter').textContent = done + ' de ' + total + ' contemplados';
+  }
+
+  // ── INIT ─────────────────────────────────────────────────────────────
+  window.addEventListener('load', function() {
+    updateProgress();
+    updateLembCounter();
+    loadFromSheets();
+  });
+</script>
+</body>
+</html>
